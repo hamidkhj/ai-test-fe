@@ -55,8 +55,8 @@ const ChatbotWidget = () => {
     };
 
     return (
-        <div>
-
+        <div className="font-sans">
+            {/* Chatbot Floating Button */}
             <button
                 onClick={toggleChat}
                 className="fixed bottom-4 left-4 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 z-50"
@@ -65,61 +65,69 @@ const ChatbotWidget = () => {
                 <MessageSquareText size={24} />
             </button>
 
-
+            {/* Chat Widget */}
             {isOpen && (
-                <div
-                    style={{ position: 'fixed', bottom: '5rem', left: '1rem' }}
-                >
-
-                    <div>
-                        <h2>Chat with Bot</h2>
+                <div className="fixed bottom-20 left-4 w-11/12 sm:w-80 h-96 bg-white rounded-lg shadow-2xl flex flex-col z-40 transition-all duration-300 ease-in-out transform origin-bottom-left scale-100 opacity-100">
+                    {/* Widget Header */}
+                    <div className="flex items-center justify-between p-4 bg-indigo-600 text-white rounded-t-lg shadow-md">
+                        <h2 className="text-lg font-semibold">Chat with Bot</h2>
                         <button
                             onClick={toggleChat}
+                            className="p-1 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
                             aria-label="Close Chatbot"
                         >
                             <X size={20} />
                         </button>
                     </div>
 
-
-                    <div>
+                    {/* Messages Display Area */}
+                    <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50">
                         {messages.length === 0 && (
-                            <div>
+                            <div className="text-center text-gray-500 mt-10">
                                 <p>Hello! How can I help you today?</p>
                             </div>
                         )}
                         {messages.map((msg, index) => (
                             <div
                                 key={index}
+                                className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                             >
-                                <div>
+                                <div
+                                    className={`max-w-[75%] p-3 rounded-lg shadow-sm text-sm ${msg.sender === 'user'
+                                            ? 'bg-indigo-500 text-white rounded-br-none'
+                                            : 'bg-gray-200 text-gray-800 rounded-bl-none'
+                                        }`}
+                                >
                                     {msg.text}
                                 </div>
                             </div>
                         ))}
                         {isLoading && (
-                            <div>
-                                <div>
+                            <div className="flex justify-start">
+                                <div className="max-w-[75%] p-3 rounded-lg shadow-sm bg-gray-200 text-gray-800 rounded-bl-none animate-pulse">
                                     Typing...
                                 </div>
                             </div>
                         )}
-                        <div />
+                        <div /> {/* For auto-scrolling */}
                     </div>
 
-                    <div>
-                        <div>
+                    {/* Input Area */}
+                    <div className="p-4 border-t border-gray-200 bg-white">
+                        <div className="flex rounded-md shadow-sm overflow-hidden">
                             <input
                                 type="text"
                                 value={inputText}
                                 onChange={(e) => setInputText(e.target.value)}
                                 onKeyPress={handleKeyPress}
                                 placeholder="Type your message..."
-                                disabled={isLoading}
+                                className="flex-1 p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800 text-sm"
+                                disabled={isLoading} // Disable input while loading
                             />
                             <button
                                 onClick={() => sendMessage(inputText)}
-                                disabled={isLoading || inputText.trim() === ''}
+                                className="bg-indigo-600 text-white px-4 py-3 rounded-r-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={isLoading || inputText.trim() === ''} // Disable button while loading or if input is empty
                             >
                                 Send
                             </button>
