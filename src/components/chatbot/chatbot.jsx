@@ -26,7 +26,8 @@ const ChatbotWidget = () => {
         try {
 
             const payload = {
-                userMessage: message,
+                message: message,
+                history: {}
             };
             console.log(payload)
             const response = await axios.post('/chatbot/chat', payload);
