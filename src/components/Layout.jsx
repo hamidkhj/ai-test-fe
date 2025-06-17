@@ -2,6 +2,8 @@ import React from 'react';
 import TaskIndicator from './TaskIndicator';
 import CreateTask from './createTask/CreateTask';
 import { Outlet } from 'react-router-dom';
+import ChatbotWidget from './chatbot/chatbot';
+
 function Layout() {
     return (
         <div>
@@ -16,6 +18,7 @@ function Layout() {
                     </div>
 
                 </div>
+                <ChatbotWidget />
             </div>
         </div>
     );
