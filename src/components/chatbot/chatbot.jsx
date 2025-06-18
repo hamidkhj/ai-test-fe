@@ -8,7 +8,7 @@ const ChatbotWidget = () => {
     const [messages, setMessages] = useState([]); // State to store chat messages
     const [inputText, setInputText] = useState(''); // State for the user's input field
     const [isLoading, setIsLoading] = useState(false); // State for loading indicator during API call
-    const {userToken} = useContext(TokenContext)
+    const { userToken } = useContext(TokenContext)
 
 
     const toggleChat = () => {
@@ -32,10 +32,10 @@ const ChatbotWidget = () => {
                 history: {}
             };
             console.log(payload)
-            const response = await axios.post('/chatbot/chat', payload,{
-              headers: {
-                Authorization: `Bearer ${userToken}`
-              }
+            const response = await axios.post('/chatbot/chat', payload, {
+                headers: {
+                    Authorization: `Bearer ${userToken}`
+                }
             });
 
             let botResponseText = "Sorry, I couldn't get a response from the bot. Please try again.";
@@ -47,6 +47,11 @@ const ChatbotWidget = () => {
             setMessages((prevMessages) => [...prevMessages, botMessage]);
 
         } catch (error) {
+            if (error.response.request.status === 429) {
+                console.log(error.response.data.message)
+                const botMessage = { sender: 'bot', text: error.response.data.message };
+                setMessages((prevMessages) => [...prevMessages, botMessage]);
+            }
             console.log(error)
         } finally {
             setIsLoading(false);
@@ -100,8 +105,8 @@ const ChatbotWidget = () => {
                             >
                                 <div
                                     className={`max-w-[75%] p-3 rounded-lg shadow-sm text-sm ${msg.sender === 'user'
-                                            ? 'bg-indigo-500 text-white rounded-br-none'
-                                            : 'bg-gray-200 text-gray-800 rounded-bl-none'
+                                        ? 'bg-indigo-500 text-white rounded-br-none'
+                                        : 'bg-gray-200 text-gray-800 rounded-bl-none'
                                         }`}
                                 >
                                     {msg.text}
