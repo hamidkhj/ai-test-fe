@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { MessageSquareText, X } from 'lucide-react';
 import axios from "../../Axios/axios.js";
+import TokenContext from '../../context/TokenContext';
 
 const ChatbotWidget = () => {
     const [isOpen, setIsOpen] = useState(false); // State to control widget visibility
     const [messages, setMessages] = useState([]); // State to store chat messages
     const [inputText, setInputText] = useState(''); // State for the user's input field
     const [isLoading, setIsLoading] = useState(false); // State for loading indicator during API call
+    const {userToken} = useContext(TokenContext)
 
 
     const toggleChat = () => {
@@ -30,7 +32,11 @@ const ChatbotWidget = () => {
                 history: {}
             };
             console.log(payload)
-            const response = await axios.post('/chatbot/chat', payload);
+            const response = await axios.post('/chatbot/chat', payload,{
+              headers: {
+                Authorization: `Bearer ${userToken}`
+              }
+            });
 
             let botResponseText = "Sorry, I couldn't get a response from the bot. Please try again.";
             if (response.data && response.data.message) {
