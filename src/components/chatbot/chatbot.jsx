@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { MessageSquareText, X } from 'lucide-react';
 import axios from "../../Axios/axios.js";
 import TokenContext from '../../context/TokenContext';
@@ -9,11 +9,27 @@ const ChatbotWidget = () => {
     const [inputText, setInputText] = useState(''); // State for the user's input field
     const [isLoading, setIsLoading] = useState(false); // State for loading indicator during API call
     const { userToken } = useContext(TokenContext)
+    const inputRef = useRef(null)
+    const endRef = useRef(null)
 
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
     };
+
+    const scrollToBottom = () => {
+        endRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [messages]);
 
 
     const sendMessage = async (message) => {
@@ -92,7 +108,7 @@ const ChatbotWidget = () => {
                     </div>
 
                     {/* Messages Display Area */}
-                    <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50">
+                    <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50" >
                         {messages.length === 0 && (
                             <div className="text-center text-gray-500 mt-10">
                                 <p>Hello! How can I help you today?</p>
@@ -120,7 +136,7 @@ const ChatbotWidget = () => {
                                 </div>
                             </div>
                         )}
-                        <div /> {/* For auto-scrolling */}
+                        <div ref={endRef}/> 
                     </div>
 
                     {/* Input Area */}
@@ -129,6 +145,7 @@ const ChatbotWidget = () => {
                             <input
                                 type="text"
                                 value={inputText}
+                                ref={inputRef}
                                 onChange={(e) => setInputText(e.target.value)}
                                 onKeyPress={handleKeyPress}
                                 placeholder="Type your message..."
