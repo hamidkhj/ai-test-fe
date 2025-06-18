@@ -16,14 +16,21 @@ function Header() {
         <div>
             <nav className="bg-blue-50 border-b border-blue-100 shadow-sm px-6 py-4 flex justify-between items-center">
                 {/* App Logo */}
-                <div className="text-2xl font-bold tracking-wide">
+                <div className="text-xl font-bold tracking-wide">
                     <Link
                         to="/"
-                        className="text-blue-700 hover:text-blue-800 transition duration-200"
+                        className="text-blue-700 hover:text-blue-800 transition duration-200  px-6"
                     >
                         Shift Manager
                     </Link>
+                    <Link
+                        to="/validateDoc"
+                        className="text-blue-700 hover:text-blue-800 transition duration-200 px-6"
+                    >
+                        Document Validation
+                    </Link>
                 </div>
+
 
                 {/* Navigation / Auth Buttons */}
                 <div className="flex items-center gap-4">
