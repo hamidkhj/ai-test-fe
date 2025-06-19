@@ -51,23 +51,15 @@ note: This is using Render free services. The app will hybernate after 15 minute
 
   
 
-| Category | Technology |
-
-|---------------|-----------------------------------------------|
-
-| **Frontend** | React, Tailwind CSS, Axios |
-
-| **Backend** | Node.js |
-
-| **AI Model** | Togather/Llama-3.3-70B-Instruct-Turbo, Google/Document AI |
-
-| **Embeddings**| Cohere/embed-english-v3.0 |
-
-| **Vector DB** | Faiss |
-
-| **Database** | Mongoose, Redis |
-
-| **Deployment**| Vercel (Frontend), Render (Backend) |
+| Category      | Technology                                                              |
+|--------------|-------------------------------------------------------------------------|
+| **Frontend**  | React, Tailwind CSS, Axios                                              |
+| **Backend**   | Node.js                                                                 |
+| **AI Model**  | Togather/Llama-3.3-70B-Instruct-Turbo, Google/Document AI              |
+| **Embeddings**| Cohere/embed-english-v3.0                                               |
+| **Vector DB** | Faiss                                                                   |
+| **Database**  | Mongoose, Redis                                                         |
+| **Deployment**| Vercel (Frontend), Render (Backend)                                     |
 
   
 
