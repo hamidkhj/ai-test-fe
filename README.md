@@ -18,11 +18,13 @@ Check out the live application and a video walkthrough to see it in action!
 *  **Frontend URL:**  **https://ai-test-fe-cyan.vercel.app/**
 
 *  **Backend URL:**  **https://ortabe.onrender.com**
+note: This is a free render service which hybernates after 15 mins and take 1-2 minutes to reload. 
 
 *  **Video Showcase:**  **https://screenrec.com/share/H6ZOuc9Vek**
 
+*  **FronetEnd Repo:**  **https://github.com/hamidkhj/ai-test-fe**
   
-
+*  **Backend Repo:**  **https://github.com/hamidkhj/ai-test-be**
 ---
 
   
