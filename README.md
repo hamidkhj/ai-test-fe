@@ -1,5 +1,5 @@
 
-An AI powerd solution for onboarding
+An AI-powered solution for onboarding with an interactive chatbot to answer questions grounded in provided documents and a document validation module to validate uploaded documents and extract information from them. 
 
   
 
@@ -33,7 +33,7 @@ note: This is using Render free services. The app will hybernate after 15 minute
 
   
 
-*  **AI-Powered Chatbot:** Engage in natural conversations with a chatbot that has deep knowledge of your uploaded documents and only answers based on that knowldege.
+*  **AI-Powered Chatbot:** Engage in natural conversations with a chatbot that has deep knowledge of your uploaded documents and only answers based on that knowledge.
 
 *  **Intelligent Document Validation:** Automatically validate documents using google Document AI and and an LLM assistant.
 
@@ -270,4 +270,4 @@ This module intelligently validates uploaded documents (Paassport or Drivers Lic
 
 *  **User Feedback:** Clear loading states and skeleton screens are used to keep the user informed of the application's state.
 
-*  **Intuitive Chat Interface:** The chat interface includes features like typing indicators and message history for a familiar and engaging user experience. It also supports auto scroll. 
+*  **Intuitive Chat Interface:** The chat interface includes features like typing indicators, message history for a familiar and engaging user experience, autoscroll and autofocus.  
