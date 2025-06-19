@@ -1,5 +1,5 @@
 
-A brief one-sentence description of your application. E.g., "An intelligent document processing and chatbot application built with React and powered by cutting-edge AI."
+An AI powerd solution for onboarding
 
   
 
@@ -110,7 +110,7 @@ COHERE_API_KEY=<Your-API-KEY>
 
 JWT_SECRET=secret1234
 
-MONGO_URI=mongodb+srv://admin:K4X8Mt3QnzCVAjzA@qa-test.h3jz5mc.mongodb.net/?retryWrites=true&w=majority
+MONGO_URI=<Your-MongoDB-URI>
 
 PORT=8000
 
@@ -277,4 +277,3 @@ This module intelligently validates uploaded documents (Paassport or Drivers Lic
 *  **User Feedback:** Clear loading states and skeleton screens are used to keep the user informed of the application's state.
 
 *  **Intuitive Chat Interface:** The chat interface includes features like typing indicators and message history for a familiar and engaging user experience. It also supports auto scroll. 
-
