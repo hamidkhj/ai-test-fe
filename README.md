@@ -18,11 +18,13 @@ Check out the live application and a video walkthrough to see it in action!
 *  **Frontend URL:**  **https://ai-test-fe-cyan.vercel.app/**
 
 *  **Backend URL:**  **https://ortabe.onrender.com**
+note: This is using Render free services. The app will hybernate after 15 minutes of not being used and it takes 1-2 minutes to reload. 
 
 *  **Video Showcase:**  **https://screenrec.com/share/H6ZOuc9Vek**
 
-  
+* **FrontEnd Repo:** **https://github.com/hamidkhj/ai-test-fe**
 
+* **Backend Repo:** **https://github.com/hamidkhj/ai-test-be**
 ---
 
   
@@ -184,7 +186,7 @@ The React application will open in your browser at `http://localhost:3000` .
 
   
 
-The chatbot uses a **Retrieval-Augmented Generation (RAG)** architecture to provide answers based on a custom knowledge base. The file was created based on FAQ section of the [https://www.ortagroup.co.uk/faqs]OrtaGroup website. 
+The chatbot uses a **Retrieval-Augmented Generation (RAG)** architecture to provide answers based on a custom knowledge base. The file was created based on FAQ section of the [OrtaGroup](https://www.ortagroup.co.uk/faqs) website. 
 
   
 
