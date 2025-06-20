@@ -228,10 +228,11 @@ This module intelligently validates uploaded documents (Paassport or Drivers Lic
 3.  **Prompt Engineering:** A carefully crafted prompt is sent to the AI. This prompt includes:
 
 * The extracted text from the document.
+* Instructions to return a JSON object that indicates `isValid: true/false` and extracted information if the document passes.
+* This logic can be improved (at the moment it is not very secure) by the addition of an ID Verification process (from Google Cloud Document AI) or a Document Classification model fine-tuned on a custom dataset. 
 
-* Instructions to return a JSON object that indicates `isValid: true/false` and extracted information if the document passes. 
 
-4.  **Parsing the Response:** The backend parses the structured JSON response from the AI to determine the document's validity and present the specific errors to the user.
+4.  **Parsing the Response:** The backend parses the structured JSON response from the AI to determine the document's validity and presents the specific errors to the user.
 
   
 
